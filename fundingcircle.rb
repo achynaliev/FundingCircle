@@ -48,32 +48,64 @@ end
 
 def pretty_print_table(table, primes)
   print '|  X  '.colorize(:color => :black, :background => :green)
-  primes.each do |num|
-    if num < 10
-      print "|  #{num}  "
-    elsif num < 100
-      print "| #{num}  "
+  primes.each_with_index do |num, index|
+    if index % 2 == 0
+      if num < 10
+        print "|  #{num}  ".colorize(:color => :black, :background => :blue)
+      elsif num < 100
+        print "| #{num}  ".colorize(:color => :black, :background => :blue)
+      else
+        print "| #{num} ".colorize(:color => :black, :background => :blue)
+      end
     else
-      print "| #{num} "
+      if num < 10
+        print "|  #{num}  ".colorize(:color => :black, :background => :green)
+      elsif num < 100
+        print "| #{num}  ".colorize(:color => :black, :background => :green)
+      else
+        print "| #{num} ".colorize(:color => :black, :background => :green)
+      end
     end
   end
+  print "|"
   puts
 
   table.each_with_index do |row, index|
-    if primes[index] < 10
-      print "|  #{primes[index]}  "
-    elsif primes[index] < 100
-      print "| #{primes[index]}  "
-    else
-      print "| #{primes[index]} "
-    end
-    row.each do |number|
-      if number < 10
-        print "|  #{number}  "
-      elsif number < 100
-        print "| #{number}  "
+    if index % 2 == 0
+      if primes[index] < 10
+        print "|  #{primes[index]}  ".colorize(:color => :black, :background => :blue)
+      elsif primes[index] < 100
+        print "| #{primes[index]}  ".colorize(:color => :black, :background => :blue)
       else
-        print "| #{number} "
+        print "| #{primes[index]} ".colorize(:color => :black, :background => :blue)
+      end
+    else
+      if primes[index] < 10
+        print "|  #{primes[index]}  ".colorize(:color => :black, :background => :green)
+      elsif primes[index] < 100
+        print "| #{primes[index]}  ".colorize(:color => :black, :background => :green)
+      else
+        print "| #{primes[index]} ".colorize(:color => :black, :background => :green)
+      end
+    end
+
+    row.each_with_index do |number, idx|
+      if index % 2 == 0 && idx % 2 == 0 || index % 2 == 1 && idx % 2 == 1
+        if number < 10
+          print "|  #{number}  ".colorize(:color => :black, :background => :green)
+        elsif number < 100
+          print "| #{number}  ".colorize(:color => :black, :background => :green)
+        else
+          print "| #{number} ".colorize(:color => :black, :background => :green)
+        end
+      else
+        if number < 10
+          print "|  #{number}  ".colorize(:color => :black, :background => :blue)
+        elsif number < 100
+          print "| #{number}  ".colorize(:color => :black, :background => :blue)
+        else
+          print "| #{number} ".colorize(:color => :black, :background => :blue)
+        end
       end
     end
     print "|"
