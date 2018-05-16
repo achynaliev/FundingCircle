@@ -1,3 +1,5 @@
+require 'colorize'
+
 def prime_multiplication_table(number)
   n_primes = find_n_primes(number)
 
@@ -45,17 +47,36 @@ def prime?(number)
 end
 
 def pretty_print_table(table, primes)
-  print ' X |'
+  print '|  X  '.colorize(:color => :black, :background => :green)
   primes.each do |num|
-    print "| #{num} |"
+    if num < 10
+      print "|  #{num}  "
+    elsif num < 100
+      print "| #{num}  "
+    else
+      print "| #{num} "
+    end
   end
   puts
 
   table.each_with_index do |row, index|
-    print " #{primes[index]} "
-    row.each do |number|
-      print "| #{number} |"
+    if primes[index] < 10
+      print "|  #{primes[index]}  "
+    elsif primes[index] < 100
+      print "| #{primes[index]}  "
+    else
+      print "| #{primes[index]} "
     end
+    row.each do |number|
+      if number < 10
+        print "|  #{number}  "
+      elsif number < 100
+        print "| #{number}  "
+      else
+        print "| #{number} "
+      end
+    end
+    print "|"
     puts
   end
   puts
