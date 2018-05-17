@@ -8,4 +8,4 @@ To run this code please follow step below
 
 and you should see this
 
-![image](https://github.com/achynaliev/FundingCircle/screen.png)
+![image](https://github.com/achynaliev/FundingCircle/blob/master/screen.png)
