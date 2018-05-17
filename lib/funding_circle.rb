@@ -28,6 +28,8 @@ class PrimeMultiplicationTable
     multipliation_table
   end
 
+  # 0(n^2)
+
   def find_n_primes(number)
     primes = []
     return primes if number <= 0
@@ -41,18 +43,23 @@ class PrimeMultiplicationTable
     primes
   end
 
+  #O(n * sqrt(n))
+
   def prime?(number)
     return false if number < 2
     return true if number == 2
+    return false if number % 2 == 0
 
-    i = 2
-    while i <= number / 2
+    i = 3
+    while i <= Math.sqrt(number)
       return false if (number % i).zero?
-      i += 1
+      i += 2
     end
 
     return true
   end
+
+  # O(sqrt(n))
 
   def pretty_print_table()
     print '|  X  '.colorize(:color => :black, :background => :green)
@@ -122,7 +129,6 @@ class PrimeMultiplicationTable
     puts
   end
 end
-
 
 mytable = PrimeMultiplicationTable.new(10)
 mytable.pretty_print_table()
