@@ -1,6 +1,6 @@
 Hi there,
 
-To run this code please follow step below
+To run this code please follow steps below
 1. clone this repo
 2. cd into repo
 3. run 'bundle install'
@@ -8,4 +8,4 @@ To run this code please follow step below
 
 and you should see this
 
-![image](https://github.com/achynaliev/FundingCircle/blob/master/screen.png)
+![image](https://github.com/achynaliev/FundingCircle/blob/master/screenshot.png)
